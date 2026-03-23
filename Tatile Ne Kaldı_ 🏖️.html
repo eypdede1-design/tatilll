@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)file:///C:/Users/EyupDede/Downloads/tatil-geri-sayim_1.html -->
+<html lang="tr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tatile Ne Kaldı? 🏖️</title>
+<link href="./Tatile Ne Kaldı_ 🏖️_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --sun: #FFD93D;
+    --ocean: #0096C7;
+    --sand: #FFDAB9;
+    --coral: #FF6B6B;
+    --palm: #2D6A4F;
+    --sky: #ADE8F4;
+    --white: #FFFEF7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(180deg, #87CEEB 0%, #ADE8F4 40%, #0096C7 70%, #023E8A 100%);
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .sun {
+    position: fixed;
+    top: -60px;
+    right: 80px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, #fff176, #FFD93D, #FFB300);
+    border-radius: 50%;
+    box-shadow: 0 0 60px 30px rgba(255,217,61,0.4), 0 0 120px 60px rgba(255,183,0,0.2);
+    animation: sunPulse 4s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  @keyframes sunPulse {
+    0%, 100% { box-shadow: 0 0 60px 30px rgba(255,217,61,0.4), 0 0 120px 60px rgba(255,183,0,0.2); }
+    50% { box-shadow: 0 0 80px 50px rgba(255,217,61,0.6), 0 0 150px 80px rgba(255,183,0,0.3); }
+  }
+
+  .cloud {
+    position: fixed;
+    background: white;
+    border-radius: 50px;
+    opacity: 0.85;
+    z-index: 0;
+  }
+  .cloud::before, .cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+  }
+  .cloud1 { width: 120px; height: 40px; top: 60px; left: -130px; animation: cloudMove 25s linear infinite; }
+  .cloud1::before { width: 60px; height: 60px; top: -30px; left: 15px; }
+  .cloud1::after { width: 45px; height: 45px; top: -20px; left: 55px; }
+  .cloud2 { width: 90px; height: 30px; top: 110px; left: -100px; animation: cloudMove 35s linear infinite 10s; opacity: 0.6; }
+  .cloud2::before { width: 45px; height: 45px; top: -22px; left: 10px; }
+  .cloud2::after { width: 35px; height: 35px; top: -15px; left: 40px; }
+
+  @keyframes cloudMove {
+    from { left: -150px; }
+    to { left: 110vw; }
+  }
+
+  .waves {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+  }
+  .wave {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    height: 80px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50% 50% 0 0;
+  }
+  .wave1 { animation: wave 6s ease-in-out infinite; }
+  .wave2 { height: 60px; background: rgba(255,255,255,0.1); animation: wave 8s ease-in-out infinite reverse 1s; }
+  .wave3 { height: 40px; background: rgba(173,232,244,0.2); animation: wave 10s ease-in-out infinite 2s; }
+  @keyframes wave {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-25%); }
+  }
+
+  .palm { position: fixed; bottom: 40px; z-index: 1; }
+  .palm-left { left: -10px; transform: rotate(-8deg); }
+  .palm-right { right: -10px; transform: rotate(8deg) scaleX(-1); }
+  .palm svg { width: 120px; height: 200px; }
+
+  .container {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .title-box {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .emoji-row {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: var(--white);
+    text-shadow: 3px 3px 0 var(--coral), 6px 6px 0 rgba(0,0,0,0.2);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: rgba(255,255,255,0.9);
+    font-weight: 700;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  }
+
+  .countdown {
+    display: flex;
+    gap: clamp(10px, 3vw, 24px);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .time-block {
+    background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,250,230,0.9));
+    border-radius: 20px;
+    padding: clamp(16px, 4vw, 28px) clamp(14px, 3vw, 24px);
+    text-align: center;
+    min-width: clamp(70px, 18vw, 110px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 2px 0 rgba(255,255,255,0.8) inset;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .time-block:hover { transform: translateY(-5px) scale(1.05); }
+
+  .time-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--coral), var(--sun), var(--ocean));
+  }
+
+  .time-number {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    color: var(--ocean);
+    line-height: 1;
+    text-shadow: 2px 2px 0 rgba(0,150,199,0.2);
+  }
+
+  .time-label {
+    font-size: clamp(0.65rem, 2vw, 0.85rem);
+    font-weight: 900;
+    color: var(--coral);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+  }
+
+  .separator {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    align-self: center;
+    margin-bottom: 20px;
+    animation: blink 1s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .info-box {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 16px 32px;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    margin-top: 10px;
+    max-width: 400px;
+    line-height: 1.8;
+  }
+
+  .info-box span {
+    color: var(--sun);
+    font-family: 'Pacifico', cursive;
+  }
+
+  .floaties {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  .floaty {
+    position: absolute;
+    font-size: 1.8rem;
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+  }
+
+  .done-message {
+    display: none;
+    text-align: center;
+  }
+  .done-message h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: var(--sun);
+    text-shadow: 3px 3px 0 var(--coral);
+    animation: bounce 1s infinite;
+  }
+</style>
+</head>
+<body>
+
+<div class="sun"></div>
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+
+<div class="waves">
+  <div class="wave wave1"></div>
+  <div class="wave wave2"></div>
+  <div class="wave wave3"></div>
+</div>
+
+<div class="palm palm-left">
+  <svg viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="52" y="80" width="16" height="120" rx="8" fill="#8B6914"></rect>
+    <path d="M60 75 Q20 50 5 20 Q30 35 60 75Z" fill="#2D6A4F"></path>
+    <path d="M60 75 Q100 50 115 20 Q90 35 60 75Z" fill="#40916C"></path>
+    <path d="M60 75 Q10 70 0 45 Q25 55 60 75Z" fill="#2D6A4F"></path>
+    <path d="M60 75 Q110 70 120 45 Q95 55 60 75Z" fill="#40916C"></path>
+    <path d="M60 75 Q30 40 40 10 Q50 40 60 75Z" fill="#52B788"></path>
+    <path d="M60 75 Q90 40 80 10 Q70 40 60 75Z" fill="#2D6A4F"></path>
+    <circle cx="35" cy="85" r="8" fill="#FFD93D"></circle>
+    <circle cx="85" cy="90" r="7" fill="#FFD93D"></circle>
+  </svg>
+</div>
+<div class="palm palm-right">
+  <svg viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="52" y="80" width="16" height="120" rx="8" fill="#8B6914"></rect>
+    <path d="M60 75 Q20 50 5 20 Q30 35 60 75Z" fill="#2D6A4F"></path>
+    <path d="M60 75 Q100 50 115 20 Q90 35 60 75Z" fill="#40916C"></path>
+    <path d="M60 75 Q10 70 0 45 Q25 55 60 75Z" fill="#2D6A4F"></path>
+    <path d="M60 75 Q110 70 120 45 Q95 55 60 75Z" fill="#40916C"></path>
+    <path d="M60 75 Q30 40 40 10 Q50 40 60 75Z" fill="#52B788"></path>
+    <path d="M60 75 Q90 40 80 10 Q70 40 60 75Z" fill="#2D6A4F"></path>
+    <circle cx="35" cy="85" r="8" fill="#FFD93D"></circle>
+    <circle cx="85" cy="90" r="7" fill="#FFD93D"></circle>
+  </svg>
+</div>
+
+<div class="floaties" id="floaties"><div class="floaty" style="left: 47.0076vw; animation-duration: 13.5381s; animation-delay: 1.85408s; font-size: 1.45149rem;">⭐</div><div class="floaty" style="left: 49.4695vw; animation-duration: 11.1699s; animation-delay: 1.90522s; font-size: 1.19812rem;">🐬</div><div class="floaty" style="left: 6.38555vw; animation-duration: 16.6972s; animation-delay: 1.51973s; font-size: 2.1767rem;">🌅</div><div class="floaty" style="left: 16.5274vw; animation-duration: 19.7239s; animation-delay: 0.713124s; font-size: 1.73677rem;">🦋</div><div class="floaty" style="left: 71.9734vw; animation-duration: 18.8807s; animation-delay: 0.336376s; font-size: 2.39805rem;">🌅</div><div class="floaty" style="left: 18.9933vw; animation-duration: 19.8252s; animation-delay: 0.922404s; font-size: 1.28505rem;">🌅</div><div class="floaty" style="left: 75.1689vw; animation-duration: 10.1992s; animation-delay: 0.954797s; font-size: 2.03608rem;">🌻</div><div class="floaty" style="left: 55.0055vw; animation-duration: 17.5199s; animation-delay: 0.138345s; font-size: 1.98516rem;">🏄</div><div class="floaty" style="left: 87.8335vw; animation-duration: 12.1071s; animation-delay: 1.25911s; font-size: 1.55753rem;">🌻</div><div class="floaty" style="left: 11.8561vw; animation-duration: 11.3708s; animation-delay: 2.7235s; font-size: 2.21904rem;">⭐</div></div>
+
+<div class="container">
+  <div class="title-box">
+    <div class="emoji-row">🌊 🏖️ 🌴 ☀️ 🐚</div>
+    <h1>Tatile Ne Kaldı?</h1>
+    <p class="subtitle">Bavullar hazırlanıyor... ✈️</p>
+  </div>
+
+  <div class="countdown" id="countdown">
+    <div class="time-block">
+      <div class="time-number" id="days">150</div>
+      <div class="time-label">Gün</div>
+    </div>
+    <div class="separator">:</div>
+    <div class="time-block">
+      <div class="time-number" id="hours">16</div>
+      <div class="time-label">Saat</div>
+    </div>
+    <div class="separator">:</div>
+    <div class="time-block">
+      <div class="time-number" id="minutes">09</div>
+      <div class="time-label">Dakika</div>
+    </div>
+    <div class="separator">:</div>
+    <div class="time-block">
+      <div class="time-number" id="seconds">26</div>
+      <div class="time-label">Saniye</div>
+    </div>
+  </div>
+
+  <div class="done-message" id="doneMsg">
+    <h2>🎉 Tatil Başlıyor! 🎉</h2>
+    <p style="color:white;font-size:1.3rem;margin-top:10px;">İyi tatiller! 🏖️🌴☀️</p>
+  </div>
+
+  <div class="info-box">
+    📅 Hedef: <span>25 Temmuz 2026</span> Cumartesi<br>
+    ⏰ Saat <span>07:00</span> — Yola çıkış! 🚀
+  </div>
+</div>
+
+<script>
+  const target = new Date('2026-07-25T07:00:00');
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function update() {
+    const now = new Date();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      document.getElementById('countdown').style.display = 'none';
+      document.getElementById('doneMsg').style.display = 'block';
+      return;
+    }
+
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById('days').textContent = pad(days);
+    document.getElementById('hours').textContent = pad(hours);
+    document.getElementById('minutes').textContent = pad(minutes);
+    document.getElementById('seconds').textContent = pad(seconds);
+  }
+
+  update();
+  setInterval(update, 1000);
+
+  const emojis = ['🌊','🐚','⭐','🐠','🦀','🌺','🌸','💦','🐬','🦋','🌻','🏄','🌅','🍹'];
+  const floatContainer = document.getElementById('floaties');
+
+  function spawnFloaty() {
+    const el = document.createElement('div');
+    el.className = 'floaty';
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.animationDuration = (8 + Math.random() * 12) + 's';
+    el.style.animationDelay = (Math.random() * 3) + 's';
+    el.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
+    floatContainer.appendChild(el);
+    setTimeout(() => el.remove(), 22000);
+  }
+
+  for (let i = 0; i < 10; i++) setTimeout(spawnFloaty, i * 800);
+  setInterval(spawnFloaty, 2500);
+</script>
+
+
+</body></html>
